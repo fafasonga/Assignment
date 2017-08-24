@@ -9,11 +9,12 @@ always test your code
 '''
 
 def compute_min_max_entropy(one_gram):
-    raise NotImplementedError
-    '''
-    write your code here
-    use m.log(val,2) for computing logarithm
-    '''
+    for key, val in one_gram.iteritems():
+        min_entropy = min_entropy + val * m.log(val, 2)
+        min_entropy = -min_entropy
+        print min_entropy
+        print int(m.ceil(min_entropy))
+
     return min_entropy,max_entropy
 
 def test_compute_min_max_entropy():
