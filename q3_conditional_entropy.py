@@ -15,13 +15,9 @@ def conditional_entropy(two_gramm,one_gram):
     y,x = key.split()
     '''
     entropy = 0.
-    for key in two_gramm:
+    for key, val in two_gramm.iteritems():
         x,y = key.split()
-	raise NotImplementedError
-        '''
-        write your code here
-        use m.log(val,2) for computing logarithm
-        '''
+        entropy = 1/(entropy + val * m.log(val, 2))
     return entropy
 
 def test_conditional_entropy():
