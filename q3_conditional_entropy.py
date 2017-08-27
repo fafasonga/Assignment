@@ -18,6 +18,7 @@ def conditional_entropy(two_gramm,one_gram):
     for key, val in two_gramm.iteritems():
         x,y = key.split()
         entropy = 1/(entropy + val * m.log(val, 2))
+        print entropy
     return entropy
 
 def test_conditional_entropy():

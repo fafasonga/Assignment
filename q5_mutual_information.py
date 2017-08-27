@@ -18,6 +18,7 @@ def mutual_information(two_gram,one_gram):
     for key, val in two_gram.iteritems():
         x,y = key.split()
         m_inf = 1 / (m_inf + val * m.log(val, 2))
+        print m_inf
     return m_inf
 
 def test_mutual_information():
