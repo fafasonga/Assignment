@@ -9,13 +9,14 @@ always test your code
 '''
 
 def compute_min_max_entropy(one_gram):
-    for key, val in one_gram.iteritems():
-        min_entropy = min_entropy + val * m.log(val, 2)
-        min_entropy = -min_entropy
-        print min_entropy
-        print int(m.ceil(min_entropy))
+    min_entropy = 0
+    max_entropy = 0
+    for key, val in one_gram:
+        y, x = key.split()
+        min_entropy = -(min_entropy + val * m.log(val, 2))
+        max_entropy = 1 / (max_entropy + val * m.log(val, 2))
 
-    return min_entropy,max_entropy
+    return min_entropy, max_entropy
 
 def test_compute_min_max_entropy():
     raise NotImplementedError
