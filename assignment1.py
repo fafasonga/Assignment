@@ -48,11 +48,11 @@ print "Vocabulary size: " + repr(len(voc))
 two_gram = create_n_gram(files_content,2)
 print "Number of 2-grams: " + repr(len(two_gram.keys()))
 
-min_e,max_e = compute_min_max_entropy(voc)
+min_e,max_e = compute_min_max_entropy(one_gram)
 print "Minimum entropy: " + repr(min_e) + "\nMaximum entropy: " + repr(max_e)
 
 ent = entropy(one_gram)
-print "Entropy wtr given vocabulary: " + repr(ent)
+print "Entropy wtr given vocabulary: " + repr(voc)
 
 cond_e = conditional_entropy(two_gram,one_gram)
 print "Conditional entropy of a 2-word phrase \'Y X\' H(Y|X): " + repr(cond_e)
