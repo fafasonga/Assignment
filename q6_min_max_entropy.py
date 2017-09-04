@@ -9,12 +9,8 @@ always test your code
 '''
 
 def compute_min_max_entropy(one_gram):
-    min_entropy = 0
-    max_entropy = 0
-    for key, val in one_gram:
-        y, x = key.split()
-        min_entropy = -(min_entropy + val * m.log(val, 2))
-        max_entropy = 1 / (max_entropy + val * m.log(val, 2))
+    min_entropy = -m.log(max(one_gram.values()), 2)
+    max_entropy = -m.log(min(one_gram.values()), 2)
 
     return min_entropy, max_entropy
 

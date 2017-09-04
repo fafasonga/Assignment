@@ -11,7 +11,9 @@ always test your code
 def entropy(one_gram):
     ent = 0.
     for key, val in one_gram.iteritems():
-	    ent = ent + val * m.log(val, 2)
+        x, y = key.split()
+        ent = ent + val * m.log(val, 2)
+        print ent
     return -ent
 
 def test_entropy():
