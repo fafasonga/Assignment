@@ -28,15 +28,14 @@ documents = read_pdfs(dataset_directory)
 sum_out = open("sum_train.txt","w")
 exp_out = open("exp_train.txt","w")
 edu_out = open("edu_train.txt","w")
-
 for document in documents:
     sum_b = document.find('\nSummary\n')
     exp_b = document.find('\nExperience\n')
     edu_b = document.find('\nEducation\n')
 
-    sum_out.write(document[sum_b:exp_b]+"\n")
-    exp_out.write(document[exp_b:edu_b]+"\n")
-    edu_out.write(document[edu_b:]+"\n")
+    sum_out.write(document[sum_b:exp_b].encode('utf-8')+"\n")
+    exp_out.write(document[exp_b:edu_b].encode('utf-8')+"\n")
+    edu_out.write(document[edu_b:].encode('utf-8')+"\n")
 
 sum_out.close()
 exp_out.close()
