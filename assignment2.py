@@ -1,4 +1,7 @@
 import re
+
+from math import log
+
 import q1_create_n_gram as q1
 from sklearn.metrics import f1_score
 
@@ -33,12 +36,14 @@ ngram_list = [sum_onegram, exp_onegram, edu_onegram]
 
 
 def bayes(text, ngram):
+    _lambda = 0.5
     proba = 1
     words = text.split()
     for word in words:
         p = 0.0000001
         if word in ngram:
-            p = ngram.get(word)
+            p_w = 0
+            p = (1 - _lambda) * ngram.get(word) + _lambda * p_w
         proba = proba * p
     return proba
 
